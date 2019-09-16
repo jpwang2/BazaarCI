@@ -1,7 +1,7 @@
 #!/opt/xsite/cte/tools/python/bin/python3
 import sys
 import asyncio
-sys.path.append(f"/afs/apd.pok.ibm.com/u/jpwang2/bazaarci/BazaarCI/")
+sys.path.append(f"..")
 from bazaarci.runner.asyncgraph import asyncGraph
 from bazaarci.runner.asyncstep import asyncStep
 from bazaarci.runner.asyncproduct import asyncProduct
