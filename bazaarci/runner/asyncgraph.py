@@ -24,6 +24,12 @@ class asyncGraph(Node, set):
 #    def wait(self):
 #        [step.wait() for step in self]
 
+    async def runInLoop(self):
+        '''Run the graph if it's already being called in an event loop'''
+        asyncRuns = [step.run() for step in self]
+        groupRuns = asyncio.gather(*asyncRuns)
+
+
     def run(self):
         asyncRuns = [step.run() for step in self]
         groupRuns = asyncio.gather(*asyncRuns)
