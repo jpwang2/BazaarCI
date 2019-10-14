@@ -27,8 +27,9 @@ class asyncGraph(Node, set):
     async def runInLoop(self):
         '''Run the graph if it's already being called in an event loop'''
         asyncRuns = [step.run() for step in self]
-        groupRuns = asyncio.gather(*asyncRuns)
-
+        groupRuns = await asyncio.gather(*asyncRuns)
+        results = [step.output for step in self]
+        return results
 
     def run(self):
         asyncRuns = [step.run() for step in self]
